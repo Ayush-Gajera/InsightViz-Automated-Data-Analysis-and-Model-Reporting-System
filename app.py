@@ -24,7 +24,7 @@ def upload_file():
     if file.filename == '':
         return "No selected file", 400
 
-    if file:
+    if file :
         filepath = os.path.join('uploads', file.filename)
         os.makedirs('uploads', exist_ok=True)
         file.save(filepath)
@@ -43,7 +43,7 @@ def upload_file():
         # Generate report
         report_path = generate_report(
             data_summary, eda_plots, model_results, confusion_matrices, comparison_chart
-        )
+        ) 
 
         # Pass data to results page
         return render_template(
@@ -55,9 +55,9 @@ def upload_file():
             confusion_matrices=confusion_matrices,
             comparison_chart=comparison_chart,
             report_path=report_path
-        )
+        ) 
 
-@app.route('/download/<path:filename>')
+@app.route('/download/<path:filename>') 
 def download(filename):
     return send_file(filename, as_attachment=True)
 
